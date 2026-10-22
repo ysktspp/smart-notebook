@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Навчальний портал 4 Класу | Завдання та Робочий зошит</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Caveat (для рукописного тексту зошита) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+    }
+    .font-handwriting {
+      font-family: 'Caveat', cursive;
+    }
+    /* Стилізація під шкільний зошит */
+    .notebook-paper {
+      background-color: #fcfbf7;
+      background-image: 
+        linear-gradient(90deg, transparent 48px, #f87171 48px, #f87171 50px, transparent 50px),
+        linear-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 100% 100%, 100% 28px;
+      line-height: 28px;
+    }
+    .notebook-math {
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(to right, rgba(147, 197, 253, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(147, 197, 253, 0.4) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-amber-50 via-sky-50 to-indigo-50 min-h-screen text-slate-800 flex flex-col">
+
+  <!-- Шапка сайту -->
+  <header class="bg-white/95 backdrop-blur-md border-b-2 border-indigo-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center space-x-3">
+        <span class="text-3xl p-2 bg-indigo-100 rounded-2xl shadow-inner">🎒</span>
+        <div>
+          <h1 class="text-xl md:text-2xl font-black text-indigo-900 tracking-tight">4 Клас: Навчальний острівець</h1>
+          <p class="text-xs text-slate-500 font-semibold">Вчителька: Юлія Сергіївна 👩‍🏫</p>
+        </div>
+      </div>
+
+      <!-- Вкладки навігації -->
+      <nav class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl">
+        <button id="tab-btn-ua" onclick="switchTab('ua')" class="tab-btn px-4 py-2 rounded-xl text-sm md:text-base font-bold transition-all shadow-sm bg-indigo-600 text-white flex items-center gap-2">
+          <span>🇺🇦</span> <span>Українська мова</span>
+        </button>
+        <button id="tab-btn-math" onclick="switchTab('math')" class="tab-btn px-4 py-2 rounded-xl text-sm md:text-base font-bold transition-all text-slate-600 hover:text-indigo-600 flex items-center gap-2">
+          <span>📐</span> <span>Математика</span>
+        </button>
+        <button id="tab-btn-notebook" onclick="switchTab('notebook')" class="tab-btn px-4 py-2 rounded-xl text-sm md:text-base font-bold transition-all text-slate-600 hover:text-indigo-600 flex items-center gap-2 relative">
+          <span>📓</span> <span>Робочий зошит</span>
+          <span id="notebook-badge" class="hidden absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Головний контент -->
+  <main class="flex-grow max-w-5xl w-full mx-auto p-4 md:p-6 my-2">
+
+    <!-- ============================================== -->
+    <!-- РОЗДІЛ 1: УКРАЇНСЬКА МОВА                      -->
+    <!-- ============================================== -->
+    <section id="section-ua" class="space-y-6">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+        <div class="relative z-10">
+          <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Тема уроку</span>
+          <h2 class="text-2xl md:text-3xl font-black mt-2">Значення слова • Синоніми • Творча осінь</h2>
+          <p class="text-blue-100 text-sm mt-1">Гортай картки стрілочками, виконуй завдання та ділися своїми думками про осінню пору!</p>
+        </div>
+        <div class="absolute -right-6 -bottom-6 text-8xl opacity-20 pointer-events-none">📚</div>
+      </div>
+
+      <!-- Завдання 1: Пряме чи переносне значення (Карусель з 4 завдань) -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="bg-blue-100 text-blue-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 1</span>
+            <h3 class="font-bold text-slate-800 text-lg">Пряме чи переносне значення?</h3>
+          </div>
+          <span id="ua_carousel_counter" class="text-xs font-bold bg-slate-100 px-3 py-1 rounded-full text-slate-600">Картка 1 з 4</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Визнач, у якому значенні вжито виділене словосполучення, та перегортай стрілочками:</p>
+
+        <!-- Картка запитання -->
+        <div class="bg-blue-50/60 p-5 rounded-2xl border border-blue-100 text-center mb-4">
+          <div id="ua_q1_text" class="text-xl md:text-2xl font-black text-indigo-950 mb-3 tracking-wide">
+            <!-- Текст генерується динамічно з кольоровим виділенням словосполучення -->
+          </div>
+          <div class="flex justify-center gap-3">
+            <button type="button" onclick="setMeaningAnswer('пряме')" id="btn-meaning-direct" class="px-5 py-2.5 rounded-xl border-2 border-slate-300 font-bold text-sm bg-white hover:border-blue-400 transition">
+              Пряме значення
+            </button>
+            <button type="button" onclick="setMeaningAnswer('переносне')" id="btn-meaning-figurative" class="px-5 py-2.5 rounded-xl border-2 border-slate-300 font-bold text-sm bg-white hover:border-blue-400 transition">
+              Переносне значення
+            </button>
+          </div>
+        </div>
+
+        <!-- Кнопки гортання -->
+        <div class="flex justify-between items-center">
+          <button onclick="prevMeaningSlide()" id="btn-prev-meaning" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition flex items-center gap-1 opacity-50 cursor-not-allowed">
+            <span>← Назад</span>
+          </button>
+          <div class="flex gap-1.5" id="meaning-dots">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+          </div>
+          <button onclick="nextMeaningSlide()" id="btn-next-meaning" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition flex items-center gap-1">
+            <span>Далі →</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Завдання 2: Знайди пару синонімів (5 слів) -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="bg-blue-100 text-blue-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 2</span>
+          <h3 class="font-bold text-slate-800 text-lg">Знайди пару синонімів (5 слів)</h3>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Добери до кожного слова з лівої колонки відповідний синонім (слово, близьке за значенням):</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-2 text-sm">1. Сміливий —</span>
+            <select id="ua_syn_1" class="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">-- обери --</option>
+              <option value="хоробрий">хоробрий</option>
+              <option value="веселий">веселий</option>
+              <option value="хутко">хутко</option>
+              <option value="дитина">дитина</option>
+            </select>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-2 text-sm">2. Швидко —</span>
+            <select id="ua_syn_2" class="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">-- обери --</option>
+              <option value="хоробрий">хоробрий</option>
+              <option value="хутко">хутко</option>
+              <option value="кольоровий">кольоровий</option>
+              <option value="величезний">величезний</option>
+            </select>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-2 text-sm">3. Барвистий —</span>
+            <select id="ua_syn_3" class="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">-- обери --</option>
+              <option value="кольоровий">кольоровий</option>
+              <option value="тихий">тихий</option>
+              <option value="хутко">хутко</option>
+              <option value="дитина">дитина</option>
+            </select>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-2 text-sm">4. Гігантський —</span>
+            <select id="ua_syn_4" class="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">-- обери --</option>
+              <option value="маленький">маленький</option>
+              <option value="величезний">величезний</option>
+              <option value="хоробрий">хоробрий</option>
+              <option value="кольоровий">кольоровий</option>
+            </select>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-2 text-sm">5. Малюк —</span>
+            <select id="ua_syn_5" class="w-full bg-white border border-slate-300 rounded-xl p-2 text-xs md:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">-- обери --</option>
+              <option value="дитина">дитина</option>
+              <option value="величезний">величезний</option>
+              <option value="хутко">хутко</option>
+              <option value="хоробрий">хоробрий</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Завдання 3: Склади розсипане речення (3 речення) -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="bg-blue-100 text-blue-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 3</span>
+            <h3 class="font-bold text-slate-800 text-lg">Склади розсипане речення</h3>
+          </div>
+          <span id="ua_sentence_counter" class="text-xs font-bold bg-slate-100 px-3 py-1 rounded-full text-slate-600">Речення 1 з 3</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Натискай на слова по порядку, щоб утворити красиве речення:</p>
+        
+        <!-- Поле зібраного речення -->
+        <div class="min-h-[58px] p-3.5 bg-amber-50/70 border-2 border-dashed border-amber-300 rounded-2xl flex flex-wrap items-center gap-2 mb-4">
+          <span id="sentence-placeholder" class="text-slate-400 text-sm italic">Натискай на слова внизу, щоб скласти речення...</span>
+          <div id="sentence-container" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Доступні слова -->
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div id="words-bank" class="flex flex-wrap gap-2"></div>
+          <button onclick="resetCurrentSentence()" class="px-3.5 py-2 bg-rose-100 hover:bg-rose-200 text-rose-700 text-xs font-bold rounded-xl transition">
+            🔄 Скинути
+          </button>
+        </div>
+
+        <!-- Кнопки гортання речень -->
+        <div class="flex justify-between items-center border-t border-slate-100 pt-3">
+          <button onclick="prevSentenceSlide()" id="btn-prev-sentence" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition opacity-50 cursor-not-allowed">
+            ← Попереднє речення
+          </button>
+          <button onclick="nextSentenceSlide()" id="btn-next-sentence" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition">
+            Наступне речення →
+          </button>
+        </div>
+      </div>
+
+      <!-- Завдання 4: Визнач групу слів (без слова антоніми) -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="bg-blue-100 text-blue-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 4</span>
+            <h3 class="font-bold text-slate-800 text-lg">Визнач групу слів</h3>
+          </div>
+          <span id="group_counter" class="text-xs font-bold bg-slate-100 px-3 py-1 rounded-full text-slate-600">Приклад 1 з 3</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Прочитай слова та обери, що це: омоніми, слова близькі за значенням (синоніми) чи багатозначне слово:</p>
+
+        <div class="bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100 text-center mb-4">
+          <div id="group_words_display" class="text-xl md:text-2xl font-black text-indigo-950 mb-4 tracking-wide">
+            1. Дівоча «коса» та залізна «коса» для трави
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
+            <button type="button" onclick="setWordGroupAnswer('омоніми')" id="btn-grp-homonym" class="p-3 rounded-2xl border-2 border-slate-300 font-bold text-xs md:text-sm bg-white hover:border-indigo-400 transition">
+              🎭 Омоніми (однаково пишуться, але різні значення)
+            </button>
+            <button type="button" onclick="setWordGroupAnswer('синоніми')" id="btn-grp-synonym" class="p-3 rounded-2xl border-2 border-slate-300 font-bold text-xs md:text-sm bg-white hover:border-indigo-400 transition">
+              🤝 Близькі за значенням (синоніми)
+            </button>
+            <button type="button" onclick="setWordGroupAnswer('багатозначні')" id="btn-grp-poly" class="p-3 rounded-2xl border-2 border-slate-300 font-bold text-xs md:text-sm bg-white hover:border-indigo-400 transition">
+              ✨ Багатозначне слово (має щось спільне)
+            </button>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <button onclick="prevGroupSlide()" id="btn-prev-group" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition opacity-50 cursor-not-allowed">
+            ← Назад
+          </button>
+          <button onclick="nextGroupSlide()" id="btn-next-group" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition">
+            Далі →
+          </button>
+        </div>
+      </div>
+
+      <!-- Завдання 5: Творча вільна відповідь про осінь -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="bg-blue-100 text-blue-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 5</span>
+          <h3 class="font-bold text-slate-800 text-lg">🍂 Творче завдання: роздум про осінь</h3>
+        </div>
+        <label for="ua_autumn_thought" class="block text-slate-700 font-bold text-sm mb-2">
+          За що ти найбільше любиш осінь? Чим тобі подобається осіння пора?
+        </label>
+        <p class="text-xs text-slate-500 mb-3">Напиши 2–4 красивих речення. Твої слова відразу запишуться на сторінці твого робочого зошита!</p>
+
+        <textarea id="ua_autumn_thought" rows="4" placeholder="Мені дуже подобається осінь, тому що навколо все стає золотим та різнобарвним..." class="w-full p-4 border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-indigo-500 text-sm md:text-base leading-relaxed bg-amber-50/30"></textarea>
+      </div>
+
+      <!-- Перехід до математики -->
+      <div class="flex justify-end pt-2">
+        <button onclick="switchTab('math')" class="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold rounded-2xl shadow-md transition flex items-center gap-2">
+          <span>Перейти до Математики</span> <span>👉</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- РОЗДІЛ 2: МАТЕМАТИКА                          -->
+    <!-- ============================================== -->
+    <section id="section-math" class="hidden space-y-6">
+      <div class="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden">
+        <div class="relative z-10">
+          <span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Тема уроку</span>
+          <h2 class="text-2xl md:text-3xl font-black mt-2">Багатозначні числа • Периметр • Логіка</h2>
+          <p class="text-emerald-100 text-sm mt-1">Обчислюй у стовпчик з переходом через розряд, досліджуй прямокутник та розгадуй шифри!</p>
+        </div>
+        <div class="absolute -right-6 -bottom-6 text-8xl opacity-20 pointer-events-none">🔢</div>
+      </div>
+
+      <!-- Завдання 1: Додавання в стовпчик (3 приклади) -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="bg-emerald-100 text-emerald-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 1</span>
+          <h3 class="font-bold text-slate-800 text-lg">Додавання багатозначних чисел у стовпчик (3 вирази)</h3>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Обчисли вирази з переходом через розряд та запиши відповіді у клітинки:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Приклад 1 -->
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div class="font-mono text-xl tracking-wider text-right mb-3 pr-4">
+              <div class="text-slate-400 text-xs text-left mb-1">Приклад 1</div>
+              <div class="text-slate-700">  45 678</div>
+              <div class="text-slate-700">+ 28 456</div>
+              <div class="border-b-2 border-slate-800 my-1"></div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 mb-1">Сума:</label>
+              <input type="number" id="math_add_1" placeholder="Введи суму..." class="w-full text-base font-bold p-2.5 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <!-- Приклад 2 -->
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div class="font-mono text-xl tracking-wider text-right mb-3 pr-4">
+              <div class="text-slate-400 text-xs text-left mb-1">Приклад 2</div>
+              <div class="text-slate-700">  53 749</div>
+              <div class="text-slate-700">+ 18 584</div>
+              <div class="border-b-2 border-slate-800 my-1"></div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 mb-1">Сума:</label>
+              <input type="number" id="math_add_2" placeholder="Введи суму..." class="w-full text-base font-bold p-2.5 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <!-- Приклад 3 -->
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div class="font-mono text-xl tracking-wider text-right mb-3 pr-4">
+              <div class="text-slate-400 text-xs text-left mb-1">Приклад 3</div>
+              <div class="text-slate-700"> 126 495</div>
+              <div class="text-slate-700">+ 87 638</div>
+              <div class="border-b-2 border-slate-800 my-1"></div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 mb-1">Сума:</label>
+              <input type="number" id="math_add_3" placeholder="Введи суму..." class="w-full text-base font-bold p-2.5 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Завдання 2: Віднімання в стовпчик (3 приклади) -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="bg-emerald-100 text-emerald-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 2</span>
+          <h3 class="font-bold text-slate-800 text-lg">Віднімання багатозначних чисел з нулями у зменшуваному (3 вирази)</h3>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Будь уважним(-ою) під час позичання через розряди з нулями:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Приклад 1 -->
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div class="font-mono text-xl tracking-wider text-right mb-3 pr-4">
+              <div class="text-slate-400 text-xs text-left mb-1">Приклад 1</div>
+              <div class="text-slate-700">  70 000</div>
+              <div class="text-slate-700">- 34 568</div>
+              <div class="border-b-2 border-slate-800 my-1"></div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 mb-1">Різниця:</label>
+              <input type="number" id="math_sub_1" placeholder="Введи різницю..." class="w-full text-base font-bold p-2.5 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <!-- Приклад 2 -->
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div class="font-mono text-xl tracking-wider text-right mb-3 pr-4">
+              <div class="text-slate-400 text-xs text-left mb-1">Приклад 2</div>
+              <div class="text-slate-700">  90 204</div>
+              <div class="text-slate-700">- 45 678</div>
+              <div class="border-b-2 border-slate-800 my-1"></div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 mb-1">Різниця:</label>
+              <input type="number" id="math_sub_2" placeholder="Введи різницю..." class="w-full text-base font-bold p-2.5 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <!-- Приклад 3 -->
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div class="font-mono text-xl tracking-wider text-right mb-3 pr-4">
+              <div class="text-slate-400 text-xs text-left mb-1">Приклад 3</div>
+              <div class="text-slate-700">  60 000</div>
+              <div class="text-slate-700">- 18 345</div>
+              <div class="border-b-2 border-slate-800 my-1"></div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 mb-1">Різниця:</label>
+              <input type="number" id="math_sub_3" placeholder="Введи різницю..." class="w-full text-base font-bold p-2.5 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Завдання 3: Геометрична задача на периметр з малюнком -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="bg-emerald-100 text-emerald-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 3</span>
+          <h3 class="font-bold text-slate-800 text-lg">📐 Геометрична задача на знаходження периметра</h3>
+        </div>
+
+        <div class="p-4 bg-teal-50/70 rounded-2xl border-l-4 border-teal-500 text-slate-700 text-sm md:text-base mb-6 leading-relaxed">
+          <strong>Умова задачі:</strong> Ширина прямокутника дорівнює <strong>30 см</strong>, а довжина становить <strong>1/5</strong> цієї ширини. Знайди довжину та периметр цього прямокутника.
+        </div>
+
+        <!-- Інтерактивне креслення прямокутника -->
+        <div class="relative max-w-xl mx-auto my-6 p-6 bg-slate-50 rounded-3xl border-2 border-dashed border-teal-200 flex flex-col items-center">
+          
+          <!-- Верхній бік: Ширина -->
+          <div class="mb-2 flex items-center gap-2">
+            <span class="text-xs font-bold text-teal-800">Ширина (a):</span>
+            <input type="number" id="math_rect_width" placeholder="см" class="w-20 text-center font-bold p-1.5 border-2 border-teal-300 rounded-lg text-sm bg-white">
+            <span class="text-xs font-bold text-slate-500">см</span>
+          </div>
+
+          <!-- Саме геометричне тіло -->
+          <div class="w-full max-w-md h-36 bg-teal-100/60 border-4 border-teal-600 rounded-xl flex items-center justify-between px-4 relative shadow-inner">
+            <!-- Лівий бік: Довжина -->
+            <div class="flex items-center gap-1.5 bg-white/90 p-1.5 rounded-lg border border-teal-300 shadow-sm">
+              <span class="text-xs font-bold text-teal-900">b =</span>
+              <input type="number" id="math_rect_length" placeholder="?" class="w-16 text-center font-bold p-1 border border-teal-400 rounded text-sm">
+              <span class="text-xs text-slate-500 font-bold">см</span>
+            </div>
+            
+            <div class="text-center font-bold text-teal-900 text-xs md:text-sm">
+              <div>Прямокутник</div>
+              <div class="text-teal-700 text-xs font-normal">P = (a + b) • 2</div>
+            </div>
+
+            <!-- Правий бік: b -->
+            <div class="text-xs font-bold text-teal-700 hidden sm:block">
+              b (1/5 від 30)
+            </div>
+          </div>
+
+          <!-- Нижній бік -->
+          <div class="mt-2 text-xs font-bold text-slate-400">Ширина = 30 см</div>
+        </div>
+
+        <!-- Поле введення кінцевого периметра -->
+        <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-amber-900 text-sm">Обчислений периметр прямокутника (P):</h4>
+            <p class="text-xs text-amber-700">Запиши фінальний результат периметра у сантиметрах</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="number" id="math_rect_perimeter" placeholder="Периметр P" class="w-36 text-lg font-black p-2.5 border-2 border-amber-400 rounded-xl text-center focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white">
+            <span class="font-bold text-slate-700">см</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Завдання 4: Трирівнева логічна загадка без підказок -->
+      <div class="bg-white rounded-3xl p-5 md:p-6 border-2 border-slate-100 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="bg-emerald-100 text-emerald-700 font-extrabold px-3 py-1 rounded-xl text-sm">Завдання 4</span>
+            <h3 class="font-bold text-slate-800 text-lg">🧩 Логічна загадка (3 рівні складності)</h3>
+          </div>
+          <!-- Селектор рівнів -->
+          <div class="flex gap-1.5 bg-slate-100 p-1 rounded-xl">
+            <button onclick="setLogicLevel(1)" id="btn-logic-lvl-1" class="px-3 py-1 text-xs font-bold rounded-lg bg-emerald-600 text-white transition">Рівень 1 (Легкий)</button>
+            <button onclick="setLogicLevel(2)" id="btn-logic-lvl-2" class="px-3 py-1 text-xs font-bold rounded-lg text-slate-600 hover:text-emerald-700 transition">Рівень 2 (Середній)</button>
+            <button onclick="setLogicLevel(3)" id="btn-logic-lvl-3" class="px-3 py-1 text-xs font-bold rounded-lg text-slate-600 hover:text-emerald-700 transition">Рівень 3 (Високий)</button>
+          </div>
+        </div>
+        <p class="text-slate-600 text-sm mb-4">Розгадай шифр і визнач числове значення для знака питання (всі три рівні запишуться у зошит):</p>
+
+        <!-- Дисплей логічної загадки -->
+        <div id="logic_level_container" class="bg-slate-50 p-5 rounded-2xl border border-slate-200 mb-4">
+          <!-- Рівень 1 -->
+          <div id="logic-box-1" class="space-y-2 font-bold text-slate-700 text-center text-base md:text-lg">
+            <div>🍎 + 🍎 + 🍎 = 30</div>
+            <div>🍎 + 🍌 + 🍌 = 20</div>
+            <div class="text-emerald-700 text-xl font-black">🍎 + 🍌 = ?</div>
+          </div>
+          <!-- Рівень 2 -->
+          <div id="logic-box-2" class="hidden space-y-2 font-bold text-slate-700 text-center text-base md:text-lg">
+            <div>⭐ + ⭐ = 40</div>
+            <div>⭐ + 🌙 = 35</div>
+            <div>🌙 + ☀️ = 25</div>
+            <div class="text-emerald-700 text-xl font-black">⭐ + 🌙 + ☀️ = ?</div>
+          </div>
+          <!-- Рівень 3 -->
+          <div id="logic-box-3" class="hidden space-y-2 font-bold text-slate-700 text-center text-base md:text-lg">
+            <div>🔷 + 🔷 = 100</div>
+            <div>🔷 - 🔶 = 20</div>
+            <div>🔶 + 🔺 = 45</div>
+            <div class="text-emerald-700 text-xl font-black">🔷 + 🔶 - 🔺 = ?</div>
+          </div>
+        </div>
+
+        <!-- Поля вводу для 3 рівнів -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <label class="block text-xs font-bold text-slate-500 mb-1">Рівень 1 (?):</label>
+            <input type="number" id="math_logic_ans_1" placeholder="Відповідь 1..." class="w-full text-base font-bold p-2 border border-slate-300 rounded-lg">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <label class="block text-xs font-bold text-slate-500 mb-1">Рівень 2 (?):</label>
+            <input type="number" id="math_logic_ans_2" placeholder="Відповідь 2..." class="w-full text-base font-bold p-2 border border-slate-300 rounded-lg">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <label class="block text-xs font-bold text-slate-500 mb-1">Рівень 3 (?):</label>
+            <input type="number" id="math_logic_ans_3" placeholder="Відповідь 3..." class="w-full text-base font-bold p-2 border border-slate-300 rounded-lg">
+          </div>
+        </div>
+      </div>
+
+      <!-- Перехід до зошита -->
+      <div class="flex justify-end pt-2">
+        <button onclick="checkAndGoToNotebook()" class="px-7 py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black text-base rounded-2xl shadow-lg hover:shadow-xl transition transform active:scale-95 flex items-center gap-2">
+          <span>📓 Записати всі відповіді у Робочий зошит</span> <span>✨</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- РОЗДІЛ 3: РОБОЧИЙ ЗОШИТ (РЕЗУЛЬТАТИ)          -->
+    <!-- ============================================== -->
+    <section id="section-notebook" class="hidden space-y-6">
+
+      <!-- ЗОШИТ (Автентичний вигляд) -->
+      <div class="relative bg-white rounded-3xl shadow-2xl border-4 border-slate-200 overflow-hidden">
+        <!-- Пружина / корінець зверху -->
+        <div class="h-6 bg-slate-200 border-b border-slate-300 flex items-center justify-around px-8">
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-400 shadow-inner"></div>
+        </div>
+
+        <div class="p-6 md:p-10 notebook-paper min-h-[700px] relative">
+          <!-- Заголовок зошита -->
+          <div class="text-center mb-6 border-b-2 border-red-200 pb-4">
+            <h2 class="text-3xl md:text-4xl font-handwriting font-bold text-blue-900 tracking-wide">
+              Робочий зошит учня 4 класу
+            </h2>
+            <div class="flex justify-between items-center text-xs md:text-sm font-semibold text-slate-500 mt-2 px-4">
+              <span id="notebook-date">Дата: </span>
+              <span class="text-indigo-600 font-bold">Вчителька: Юлія Сергіївна 👩‍🏫</span>
+            </div>
+          </div>
+
+          <!-- Підсумкова оцінка рівня -->
+          <div id="evaluation-card" class="mb-8 p-5 rounded-2xl bg-white/95 border-2 border-indigo-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-xs uppercase font-bold text-slate-400">Рівень навчальних досягнень:</span>
+              <div class="flex items-center gap-2 mt-1">
+                <span id="grade-badge" class="text-xl md:text-2xl font-black px-4 py-1.5 rounded-xl bg-slate-100 text-slate-700">
+                  Виконується...
+                </span>
+              </div>
+              <p id="grade-description" class="text-xs text-slate-600 mt-1">Заповни завдання та переглянь свої записи!</p>
+            </div>
+            <div class="text-center sm:text-right">
+              <div class="text-3xl md:text-4xl font-black text-indigo-700" id="total-score">0 / 8</div>
+              <span class="text-xs font-bold text-slate-500">Основних блоків виконано</span>
+            </div>
+          </div>
+
+          <!-- Контент зошита: дві колонки -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Частина 1: Українська мова в зошиті -->
+            <div class="bg-white/85 p-5 rounded-2xl border border-blue-200 shadow-sm">
+              <div class="flex items-center gap-2 mb-3 border-b border-blue-100 pb-2">
+                <span class="text-xl">🇺🇦</span>
+                <h3 class="font-bold text-blue-900 text-base">Українська мова</h3>
+              </div>
+              <ul class="space-y-3 font-handwriting text-xl text-slate-800">
+                <li id="res_ua_meaning" class="flex items-start justify-between border-b border-dashed border-slate-200 pb-1">
+                  <span>1. Пряме/переносне (4 к.):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+                <li id="res_ua_synonyms" class="flex items-start justify-between border-b border-dashed border-slate-200 pb-1">
+                  <span>2. Синоніми (5 пар):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+                <li id="res_ua_sentences" class="flex items-start justify-between border-b border-dashed border-slate-200 pb-1">
+                  <span>3. Складені речення (3):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+                <li id="res_ua_groups" class="flex items-start justify-between border-b border-dashed border-slate-200 pb-1">
+                  <span>4. Групи слів (3 картки):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+              </ul>
+
+              <!-- Творча відповідь про осінь у зошиті -->
+              <div class="mt-4 pt-3 border-t border-blue-100">
+                <span class="text-xs font-bold uppercase text-slate-500 font-sans block mb-1">5. Твір «Чому мені подобається осінь»:</span>
+                <div id="res_ua_autumn_text" class="p-3 bg-amber-50/70 rounded-xl border border-amber-200 font-handwriting text-xl text-slate-800 leading-relaxed italic min-h-[60px]">
+                  (Тут з'явиться твій текст про осінь...)
+                </div>
+              </div>
+            </div>
+
+            <!-- Частина 2: Математика в зошиті -->
+            <div class="bg-white/85 p-5 rounded-2xl border border-emerald-200 shadow-sm notebook-math">
+              <div class="flex items-center gap-2 mb-3 border-b border-emerald-100 pb-2">
+                <span class="text-xl">📐</span>
+                <h3 class="font-bold text-emerald-900 text-base">Математика</h3>
+              </div>
+              <ul class="space-y-3 font-handwriting text-xl text-slate-800">
+                <li id="res_math_add" class="flex items-start justify-between border-b border-dashed border-slate-200 pb-1">
+                  <span>1. Додавання (3 приклади):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+                <li id="res_math_sub" class="flex items-start justify-between border-b border-dashed border-slate-200 pb-1">
+                  <span>2. Віднімання (3 приклади):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+                <li id="res_math_geom" class="flex items-start justify-between border-b border-dashed border-slate-200 pb-1">
+                  <span>3. Периметр (b і P):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+                <li id="res_math_logic" class="flex items-start justify-between pb-1">
+                  <span>4. Логічні рівні (1, 2, 3):</span>
+                  <span class="font-bold text-slate-400 text-sm font-sans">—</span>
+                </li>
+              </ul>
+
+              <!-- Коротка схема прямокутника в зошиті -->
+              <div class="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs font-sans text-slate-600">
+                <span class="font-bold block text-slate-700">Геометричні записи:</span>
+                <div class="flex justify-between mt-1">
+                  <span>Ширина a = <strong id="rec_w_disp">—</strong> см</span>
+                  <span>Довжина b = <strong id="rec_l_disp">—</strong> см</span>
+                  <span>Периметр P = <strong id="rec_p_disp">—</strong> см</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Кнопка оновлення -->
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-200 font-sans">
+            <button onclick="calculateResults()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm rounded-xl shadow transition flex items-center gap-2">
+              <span>🔄</span> <span>Оновити записи зошита</span>
+            </button>
+            <button onclick="resetAll()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs rounded-xl transition">
+              Очистити все
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ВАЖЛИВЕ НАГАДУВАННЯ: СКРІНШОТ ДЛЯ ЮЛІЇ СЕРГІЇВНИ -->
+      <div class="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-500 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-start gap-4">
+            <div class="text-4xl bg-white/20 p-3 rounded-2xl backdrop-blur-sm">📸</div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-black mb-1">Зроби скріншот для Юлії Сергіївни!</h3>
+              <p class="text-purple-100 text-sm leading-relaxed max-w-xl">
+                Сфотографуй або зроби скріншот результатів у своєму робочому зошиті та обов'язково надішли <strong>Юлії Сергіївні</strong> у <strong>Google Classroom</strong> або у <strong>Viber</strong>.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs text-purple-200">
+                <span class="bg-black/20 px-2.5 py-1 rounded-lg">💻 Ноутбук/ПК: Win + Shift + S або PrintScreen</span>
+                <span class="bg-black/20 px-2.5 py-1 rounded-lg">📱 Смартфон: Гучність вниз + Живлення</span>
+              </div>
+            </div>
+          </div>
+          <div class="shrink-0 flex flex-col gap-2 w-full md:w-auto">
+            <button onclick="copyReminderText()" class="px-5 py-3 bg-white text-indigo-900 font-extrabold rounded-2xl shadow hover:bg-purple-50 transition active:scale-95 text-center text-sm">
+              📋 Скопіювати текст звіту
+            </button>
+            <div id="copy-status" class="text-center text-xs text-green-300 font-bold hidden">Текст скопійовано!</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Футер -->
+  <footer class="mt-auto bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+    4 Клас • Інтерактивні завдання з української мови та математики • Вчитель: Юлія Сергіївна 🌟
+  </footer>
+
+  <!-- Скрипти та Логіка -->
+  <script>
+    // Встановлення дати
+    const today = new Date();
+    document.getElementById('notebook-date').innerText = 'Дата: ' + today.toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    // ==========================================
+    // УКРАЇНСЬКА МОВА: Завдання 1 (Карусель прямого/переносного)
+    // ==========================================
+    const meaningData = [
+      { 
+        html: '«Осіннє <span class="text-amber-600 bg-amber-100 px-2 py-0.5 rounded-lg underline decoration-amber-400 decoration-wavy">золоте проміння</span> сонця»', 
+        correct: 'переносне' 
+      },
+      { 
+        html: '«Міцна <span class="text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-lg underline decoration-indigo-400 decoration-wavy">залізна ложка</span> на столі»', 
+        correct: 'пряме' 
+      },
+      { 
+        html: '«Привітно <span class="text-rose-600 bg-rose-100 px-2 py-0.5 rounded-lg underline decoration-rose-400 decoration-wavy">усміхається сонечко</span> над луками»', 
+        correct: 'переносне' 
+      },
+      { 
+        html: '«Чисте й <span class="text-teal-700 bg-teal-100 px-2 py-0.5 rounded-lg underline decoration-teal-400 decoration-wavy">глибоке озеро</span> серед лісу»', 
+        correct: 'пряме' 
+      }
+    ];
+    let currentMeaningIndex = 0;
+    const meaningAnswers = [null, null, null, null];
+
+    function updateMeaningCard() {
+      const item = meaningData[currentMeaningIndex];
+      document.getElementById('ua_q1_text').innerHTML = item.html;
+      document.getElementById('ua_carousel_counter').innerText = `Картка ${currentMeaningIndex + 1} з 4`;
+
+      // Оновлення стану кнопок відповідей
+      const currentAns = meaningAnswers[currentMeaningIndex];
+      const btnDirect = document.getElementById('btn-meaning-direct');
+      const btnFig = document.getElementById('btn-meaning-figurative');
+
+      btnDirect.className = "px-5 py-2.5 rounded-xl border-2 font-bold text-sm transition " + 
+        (currentAns === 'пряме' ? "bg-blue-600 text-white border-blue-600 shadow-md" : "bg-white text-slate-700 border-slate-300 hover:border-blue-400");
+      btnFig.className = "px-5 py-2.5 rounded-xl border-2 font-bold text-sm transition " + 
+        (currentAns === 'переносне' ? "bg-blue-600 text-white border-blue-600 shadow-md" : "bg-white text-slate-700 border-slate-300 hover:border-blue-400");
+
+      // Кнопки навігації
+      const btnPrev = document.getElementById('btn-prev-meaning');
+      const btnNext = document.getElementById('btn-next-meaning');
+      if (currentMeaningIndex === 0) {
+        btnPrev.classList.add('opacity-50', 'cursor-not-allowed');
+      } else {
+        btnPrev.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+
+      if (currentMeaningIndex === meaningData.length - 1) {
+        btnNext.className = "px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition flex items-center gap-1 shadow-sm";
+        btnNext.innerHTML = "<span>Кінець ✓</span>";
+      } else {
+        btnNext.className = "px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition flex items-center gap-1 shadow-sm";
+        btnNext.innerHTML = "<span>Далі →</span>";
+      }
+
+      // Оновлення крапок
+      const dotsContainer = document.getElementById('meaning-dots');
+      dotsContainer.innerHTML = '';
+      meaningData.forEach((_, idx) => {
+        const dot = document.createElement('span');
+        dot.className = `w-2.5 h-2.5 rounded-full transition-all ${idx === currentMeaningIndex ? 'bg-blue-600 scale-125' : 'bg-slate-300'}`;
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function setMeaningAnswer(val) {
+      meaningAnswers[currentMeaningIndex] = val;
+      updateMeaningCard();
+    }
+
+    function prevMeaningSlide() {
+      if (currentMeaningIndex > 0) {
+        currentMeaningIndex--;
+        updateMeaningCard();
+      }
+    }
+
+    function nextMeaningSlide() {
+      if (currentMeaningIndex < meaningData.length - 1) {
+        currentMeaningIndex++;
+        updateMeaningCard();
+      }
+    }
+
+    // ==========================================
+    // УКРАЇНСЬКА МОВА: Завдання 3 (3 розсипані речення)
+    // ==========================================
+    const sentencesList = [
+      {
+        target: ["Золота", "осінь", "розфарбувала", "лісові", "дерева", "у", "яскраві", "кольори."],
+        shuffled: ["розфарбувала", "Золота", "яскраві", "у", "лісові", "осінь", "кольори.", "дерева"]
+      },
+      {
+        target: ["Маленькі", "пташки", "дружно", "готуються", "до", "далекої", "подорожі", "у", "вирій."],
+        shuffled: ["готуються", "Маленькі", "вирій.", "до", "пташки", "у", "подорожі", "дружно", "далекої"]
+      },
+      {
+        target: ["Лагідний", "осінній", "вітерець", "тихо", "шелестить", "сухим", "золотистим", "листям."],
+        shuffled: ["шелестить", "тихо", "Лагідний", "листям.", "осінній", "золотистим", "вітерець", "сухим"]
+      }
+    ];
+    let currentSentenceIndex = 0;
+    const userBuiltSentences = [[], [], []];
+
+    function renderCurrentSentenceUI() {
+      document.getElementById('ua_sentence_counter').innerText = `Речення ${currentSentenceIndex + 1} з 3`;
+      const curData = sentencesList[currentSentenceIndex];
+      const curUserWords = userBuiltSentences[currentSentenceIndex];
+
+      // Банк слів
+      const bank = document.getElementById('words-bank');
+      bank.innerHTML = '';
+      curData.shuffled.forEach((word, wordIdx) => {
+        const btn = document.createElement('button');
+        const isUsed = curUserWords.includes(word);
+        btn.className = `px-3 py-1.5 border-2 rounded-xl text-xs md:text-sm font-bold transition ${isUsed ? 'opacity-30 pointer-events-none bg-slate-100 border-slate-200 text-slate-400' : 'bg-indigo-50 border-indigo-200 hover:border-indigo-400 text-indigo-900 active:scale-95'}`;
+        btn.innerText = word;
+        btn.onclick = () => {
+          userBuiltSentences[currentSentenceIndex].push(word);
+          renderCurrentSentenceUI();
+        };
+        bank.appendChild(btn);
+      });
+
+      // Контейнер складених слів
+      const container = document.getElementById('sentence-container');
+      const placeholder = document.getElementById('sentence-placeholder');
+      container.innerHTML = '';
+      if (curUserWords.length === 0) {
+        placeholder.style.display = 'inline';
+      } else {
+        placeholder.style.display = 'none';
+        curUserWords.forEach(w => {
+          const chip = document.createElement('span');
+          chip.className = "px-3 py-1 bg-amber-200 text-amber-900 font-bold text-xs md:text-sm rounded-lg shadow-sm";
+          chip.innerText = w;
+          container.appendChild(chip);
+        });
+      }
+
+      // Кнопки гортання
+      const btnPrev = document.getElementById('btn-prev-sentence');
+      const btnNext = document.getElementById('btn-next-sentence');
+      btnPrev.className = `px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition ${currentSentenceIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`;
+      
+      if (currentSentenceIndex === sentencesList.length - 1) {
+        btnNext.className = "px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition shadow-sm";
+        btnNext.innerText = "Кінець ✓";
+      } else {
+        btnNext.className = "px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition";
+        btnNext.innerText = "Наступне речення →";
+      }
+    }
+
+    function resetCurrentSentence() {
+      userBuiltSentences[currentSentenceIndex] = [];
+      renderCurrentSentenceUI();
+    }
+
+    function prevSentenceSlide() {
+      if (currentSentenceIndex > 0) {
+        currentSentenceIndex--;
+        renderCurrentSentenceUI();
+      }
+    }
+
+    function nextSentenceSlide() {
+      if (currentSentenceIndex < sentencesList.length - 1) {
+        currentSentenceIndex++;
+        renderCurrentSentenceUI();
+      }
+    }
+
+    // ==========================================
+    // УКРАЇНСЬКА МОВА: Завдання 4 (Групи слів)
+    // ==========================================
+    const wordGroupData = [
+      { text: '1. Дівоча «коса» та залізна «коса» для скошування трави', correct: 'омоніми' },
+      { text: '2. «Хуртовина» — «завірюха» — «хурделиця»', correct: 'синоніми' },
+      { text: '3. «Золотий» годинник, «золота» осінь, «золоте» серце', correct: 'багатозначні' }
+    ];
+    let currentGroupIndex = 0;
+    const userGroupAnswers = [null, null, null];
+
+    function renderGroupSlide() {
+      document.getElementById('group_counter').innerText = `Приклад ${currentGroupIndex + 1} з 3`;
+      document.getElementById('group_words_display').innerText = wordGroupData[currentGroupIndex].text;
+
+      const currentAns = userGroupAnswers[currentGroupIndex];
+      const buttons = [
+        { id: 'btn-grp-homonym', val: 'омоніми' },
+        { id: 'btn-grp-synonym', val: 'синоніми' },
+        { id: 'btn-grp-poly', val: 'багатозначні' }
+      ];
+
+      buttons.forEach(b => {
+        const elem = document.getElementById(b.id);
+        if (currentAns === b.val) {
+          elem.className = "p-3 rounded-2xl border-2 font-bold text-xs md:text-sm bg-indigo-600 text-white border-indigo-600 transition";
+        } else {
+          elem.className = "p-3 rounded-2xl border-2 font-bold text-xs md:text-sm bg-white text-slate-700 border-slate-300 hover:border-indigo-400 transition";
+        }
+      });
+
+      const btnPrev = document.getElementById('btn-prev-group');
+      const btnNext = document.getElementById('btn-next-group');
+      btnPrev.className = `px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition ${currentGroupIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`;
+      
+      if (currentGroupIndex === wordGroupData.length - 1) {
+        btnNext.className = "px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition shadow-sm";
+        btnNext.innerText = "Кінець ✓";
+      } else {
+        btnNext.className = "px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition";
+        btnNext.innerText = "Далі →";
+      }
+    }
+
+    function setWordGroupAnswer(val) {
+      userGroupAnswers[currentGroupIndex] = val;
+      renderGroupSlide();
+    }
+
+    function prevGroupSlide() {
+      if (currentGroupIndex > 0) {
+        currentGroupIndex--;
+        renderGroupSlide();
+      }
+    }
+
+    function nextGroupSlide() {
+      if (currentGroupIndex < wordGroupData.length - 1) {
+        currentGroupIndex++;
+        renderGroupSlide();
+      }
+    }
+
+    // ==========================================
+    // МАТЕМАТИКА: Завдання 4 (Логічні рівні)
+    // ==========================================
+    function setLogicLevel(lvl) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`logic-box-${i}`).classList.add('hidden');
+        const btn = document.getElementById(`btn-logic-lvl-${i}`);
+        btn.className = "px-3 py-1 text-xs font-bold rounded-lg text-slate-600 hover:text-emerald-700 transition";
+      }
+      document.getElementById(`logic-box-${lvl}`).classList.remove('hidden');
+      document.getElementById(`btn-logic-lvl-${lvl}`).className = "px-3 py-1 text-xs font-bold rounded-lg bg-emerald-600 text-white transition";
+    }
+
+    // ==========================================
+    // НАВІГАЦІЯ ВКЛАДОК
+    // ==========================================
+    function switchTab(tabId) {
+      const tabs = ['ua', 'math', 'notebook'];
+      tabs.forEach(t => {
+        document.getElementById(`section-${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-btn-${t}`);
+        btn.classList.remove('bg-indigo-600', 'text-white');
+        btn.classList.add('text-slate-600');
+      });
+
+      document.getElementById(`section-${tabId}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+      activeBtn.classList.remove('text-slate-600');
+      activeBtn.classList.add('bg-indigo-600', 'text-white');
+
+      // Автоматичне прокручування вгору сторінки
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
+      if (tabId === 'notebook') {
+        calculateResults();
+      }
+    }
+
+    function checkAndGoToNotebook() {
+      switchTab('notebook');
+    }
+
+    // ==========================================
+    // ПІДРАХУНОК РЕЗУЛЬТАТІВ ТА ПЕРЕВІРКА
+    // ==========================================
+    function calculateResults() {
+      let passedBlocks = 0;
+
+      // 1. УКР. МОВА - Пряме / Переносне (4 картки)
+      let correctMeanings = 0;
+      meaningData.forEach((m, i) => {
+        if (meaningAnswers[i] === m.correct) correctMeanings++;
+      });
+      const resUaMeaning = document.getElementById('res_ua_meaning');
+      if (correctMeanings === 4) {
+        passedBlocks++;
+        resUaMeaning.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ 4 з 4 вірно</span>`;
+      } else {
+        resUaMeaning.children[1].innerHTML = `<span class="text-amber-600 font-bold">${correctMeanings}/4 вірно</span>`;
+      }
+
+      // 2. УКР. МОВА - Синоніми (5 пар)
+      // Сміливий - хоробрий; Швидко - хутко; Барвистий - кольоровий; Гігантський - величезний; Малюк - дитина
+      const s1 = document.getElementById('ua_syn_1').value;
+      const s2 = document.getElementById('ua_syn_2').value;
+      const s3 = document.getElementById('ua_syn_3').value;
+      const s4 = document.getElementById('ua_syn_4').value;
+      const s5 = document.getElementById('ua_syn_5').value;
+      let synCorrect = 0;
+      if (s1 === 'хоробрий') synCorrect++;
+      if (s2 === 'хутко') synCorrect++;
+      if (s3 === 'кольоровий') synCorrect++;
+      if (s4 === 'величезний') synCorrect++;
+      if (s5 === 'дитина') synCorrect++;
+
+      const resUaSyn = document.getElementById('res_ua_synonyms');
+      if (synCorrect === 5) {
+        passedBlocks++;
+        resUaSyn.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ Всі 5 пар складено</span>`;
+      } else {
+        resUaSyn.children[1].innerHTML = `<span class="text-amber-600 font-bold">${synCorrect}/5 вірно</span>`;
+      }
+
+      // 3. УКР. МОВА - 3 Речення
+      let correctSentences = 0;
+      sentencesList.forEach((s, idx) => {
+        if (userBuiltSentences[idx].join(' ') === s.target.join(' ')) correctSentences++;
+      });
+      const resUaSent = document.getElementById('res_ua_sentences');
+      if (correctSentences === 3) {
+        passedBlocks++;
+        resUaSent.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ Усі 3 речення готові</span>`;
+      } else {
+        resUaSent.children[1].innerHTML = `<span class="text-amber-600 font-bold">${correctSentences}/3 складено</span>`;
+      }
+
+      // 4. УКР. МОВА - Групи слів (3 картки)
+      let correctGroups = 0;
+      wordGroupData.forEach((g, idx) => {
+        if (userGroupAnswers[idx] === g.correct) correctGroups++;
+      });
+      const resUaGrp = document.getElementById('res_ua_groups');
+      if (correctGroups === 3) {
+        passedBlocks++;
+        resUaGrp.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ 3 з 3 розпізнано</span>`;
+      } else {
+        resUaGrp.children[1].innerHTML = `<span class="text-amber-600 font-bold">${correctGroups}/3 вірно</span>`;
+      }
+
+      // 5. УКР. МОВА - Твір про осінь
+      const thoughtText = document.getElementById('ua_autumn_thought').value.trim();
+      const resThought = document.getElementById('res_ua_autumn_text');
+      if (thoughtText.length > 5) {
+        resThought.innerText = `«${thoughtText}»`;
+        resThought.classList.remove('text-slate-400');
+        resThought.classList.add('text-indigo-900');
+      } else {
+        resThought.innerText = '(Думка про осінь ще не записана у розділі української мови)';
+        resThought.classList.remove('text-indigo-900');
+        resThought.classList.add('text-slate-400');
+      }
+
+      // 6. МАТЕМАТИКА - Додавання (3 приклади)
+      // 1: 45678 + 28456 = 74134
+      // 2: 53749 + 18584 = 72333
+      // 3: 126495 + 87638 = 214133
+      const a1 = parseInt(document.getElementById('math_add_1').value);
+      const a2 = parseInt(document.getElementById('math_add_2').value);
+      const a3 = parseInt(document.getElementById('math_add_3').value);
+      let addCorrect = 0;
+      if (a1 === 74134) addCorrect++;
+      if (a2 === 72333) addCorrect++;
+      if (a3 === 214133) addCorrect++;
+
+      const resMathAdd = document.getElementById('res_math_add');
+      if (addCorrect === 3) {
+        passedBlocks++;
+        resMathAdd.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ 3 з 3 обчислено</span>`;
+      } else {
+        resMathAdd.children[1].innerHTML = `<span class="text-amber-600 font-bold">${addCorrect}/3 вірно</span>`;
+      }
+
+      // 7. МАТЕМАТИКА - Віднімання (3 приклади)
+      // 1: 70000 - 34568 = 35432
+      // 2: 90204 - 45678 = 44526
+      // 3: 60000 - 18345 = 41655
+      const sub1 = parseInt(document.getElementById('math_sub_1').value);
+      const sub2 = parseInt(document.getElementById('math_sub_2').value);
+      const sub3 = parseInt(document.getElementById('math_sub_3').value);
+      let subCorrect = 0;
+      if (sub1 === 35432) subCorrect++;
+      if (sub2 === 44526) subCorrect++;
+      if (sub3 === 41655) subCorrect++;
+
+      const resMathSub = document.getElementById('res_math_sub');
+      if (subCorrect === 3) {
+        passedBlocks++;
+        resMathSub.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ 3 з 3 обчислено</span>`;
+      } else {
+        resMathSub.children[1].innerHTML = `<span class="text-amber-600 font-bold">${subCorrect}/3 вірно</span>`;
+      }
+
+      // 8. МАТЕМАТИКА - Прямокутник та периметр
+      // Ширина: 30 см
+      // Довжина: 1/5 від 30 = 6 см
+      // Периметр: (30 + 6) * 2 = 72 см
+      const rectW = parseInt(document.getElementById('math_rect_width').value);
+      const rectL = parseInt(document.getElementById('math_rect_length').value);
+      const rectP = parseInt(document.getElementById('math_rect_perimeter').value);
+
+      document.getElementById('rec_w_disp').innerText = isNaN(rectW) ? '?' : rectW;
+      document.getElementById('rec_l_disp').innerText = isNaN(rectL) ? '?' : rectL;
+      document.getElementById('rec_p_disp').innerText = isNaN(rectP) ? '?' : rectP;
+
+      const resMathGeom = document.getElementById('res_math_geom');
+      if (rectL === 6 && rectP === 72) {
+        passedBlocks++;
+        resMathGeom.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ b=6 см, P=72 см</span>`;
+      } else {
+        resMathGeom.children[1].innerHTML = `<span class="text-rose-500 font-bold">✗ Помилка (P=${isNaN(rectP)?'?':rectP})</span>`;
+      }
+
+      // 9. МАТЕМАТИКА - Логіка (3 рівні)
+      // Рівень 1: 10 + 5 = 15
+      // Рівень 2: 20 + 15 + 10 = 45
+      // Рівень 3: 50 + 30 - 15 = 65
+      const log1 = parseInt(document.getElementById('math_logic_ans_1').value);
+      const log2 = parseInt(document.getElementById('math_logic_ans_2').value);
+      const log3 = parseInt(document.getElementById('math_logic_ans_3').value);
+
+      let logicCorrect = 0;
+      if (log1 === 15) logicCorrect++;
+      if (log2 === 45) logicCorrect++;
+      if (log3 === 65) logicCorrect++;
+
+      const resMathLogic = document.getElementById('res_math_logic');
+      if (logicCorrect === 3) {
+        passedBlocks++;
+        resMathLogic.children[1].innerHTML = `<span class="text-emerald-600 font-bold">✓ Всі 3 рівні розгадано</span>`;
+      } else {
+        resMathLogic.children[1].innerHTML = `<span class="text-amber-600 font-bold">${logicCorrect}/3 рівнів</span>`;
+      }
+
+      // Рахунок (з 8 ключових блоків)
+      document.getElementById('total-score').innerText = `${passedBlocks} / 8`;
+
+      // Визначення рівня
+      const gradeBadge = document.getElementById('grade-badge');
+      const gradeDesc = document.getElementById('grade-description');
+
+      if (passedBlocks >= 7) {
+        gradeBadge.className = "text-xl md:text-2xl font-black px-4 py-1.5 rounded-xl bg-emerald-500 text-white shadow-md";
+        gradeBadge.innerHTML = '🌟 Високий рівень!';
+        gradeDesc.innerText = 'Неймовірна робота! Всі вправи розвʼязано на відмінно! Юлія Сергіївна буде дуже рада!';
+        triggerConfetti();
+      } else if (passedBlocks >= 5) {
+        gradeBadge.className = "text-xl md:text-2xl font-black px-4 py-1.5 rounded-xl bg-blue-500 text-white shadow-md";
+        gradeBadge.innerHTML = '👍 Достатній рівень!';
+        gradeDesc.innerText = 'Чудовий результат! Матеріал засвоєно добре, молодець!';
+      } else if (passedBlocks >= 3) {
+        gradeBadge.className = "text-xl md:text-2xl font-black px-4 py-1.5 rounded-xl bg-amber-500 text-white shadow-md";
+        gradeBadge.innerHTML = '📖 Середній рівень';
+        gradeDesc.innerText = 'Непогано, але перевір розрахунки або допиши незавершені завдання.';
+      } else {
+        gradeBadge.className = "text-xl md:text-2xl font-black px-4 py-1.5 rounded-xl bg-slate-400 text-white shadow-md";
+        gradeBadge.innerHTML = '🌱 Початковий рівень';
+        gradeDesc.innerText = 'Повернися до вкладок завдань і заповни всі відповіді уважно.';
+      }
+    }
+
+    function triggerConfetti() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    }
+
+    function copyReminderText() {
+      const score = document.getElementById('total-score').innerText;
+      const grade = document.getElementById('grade-badge').innerText;
+      const textToCopy = `Добрий день, Юліє Сергіївно! Я виконав(-ла) завдання на сайті. Мій результат: ${score} (${grade}). Скріншот зошита прикріплюю!`;
+      
+      const textArea = document.createElement("textarea");
+      textArea.value = textToCopy;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        const status = document.getElementById('copy-status');
+        status.classList.remove('hidden');
+        setTimeout(() => status.classList.add('hidden'), 3500);
+      } catch (err) {
+        console.error('Помилка копіювання: ', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function resetAll() {
+      meaningAnswers.fill(null);
+      updateMeaningCard();
+
+      for (let i = 1; i <= 5; i++) {
+        document.getElementById(`ua_syn_${i}`).value = '';
+      }
+
+      for (let i = 0; i < 3; i++) {
+        userBuiltSentences[i] = [];
+      }
+      renderCurrentSentenceUI();
+
+      userGroupAnswers.fill(null);
+      renderGroupSlide();
+
+      document.getElementById('ua_autumn_thought').value = '';
+
+      // Математика
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`math_add_${i}`).value = '';
+        document.getElementById(`math_sub_${i}`).value = '';
+        document.getElementById(`math_logic_ans_${i}`).value = '';
+      }
+      document.getElementById('math_rect_width').value = '';
+      document.getElementById('math_rect_length').value = '';
+      document.getElementById('math_rect_perimeter').value = '';
+
+      calculateResults();
+    }
+
+    // Запуск при завантаженні сторінки
+    window.onload = function() {
+      updateMeaningCard();
+      renderCurrentSentenceUI();
+      renderGroupSlide();
+    };
+  </script>
+</body>
+</html>
